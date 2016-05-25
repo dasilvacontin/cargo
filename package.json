@@ -1,6 +1,6 @@
 {
   "name": "@dasilvacontin/cargo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Deliver args to your npm scripts.",
   "keywords": [
     "cargo",
