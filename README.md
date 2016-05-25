@@ -21,7 +21,7 @@ npm i -D @dasilvacontin/cargo
   "name": "cargo-test",
   "version": "1.0.0",
   "scripts": {
-    "bump": "cargo \"npm version $1 -m ':ship: Release v%s'\""
+    "bump": "cargo 'npm version $1 -m \":ship: Release v%s\"'"
   },
   ...
   "devDependencies": {
