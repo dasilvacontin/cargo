@@ -4,7 +4,6 @@
     "stage-0"
   ],
   "plugins": [
-    "lodash",
     "syntax-flow",
     "transform-flow-strip-types",
     "transform-runtime"
