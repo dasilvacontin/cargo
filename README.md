@@ -15,7 +15,7 @@ npm i -D @dasilvacontin/cargo
 
 ## Usage
 
-```
+```bash
 ➜  cat package.json
 {
   "name": "cargo-test",
