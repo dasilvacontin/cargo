@@ -12,6 +12,7 @@ Deliver args to your npm scripts.
 ```
 npm i -D @dasilvacontin/cargo
 ```
+> short for `npm install --save-dev @dasilvacontin/cargo`
 
 ## What / Why
 
