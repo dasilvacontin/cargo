@@ -13,7 +13,68 @@ Deliver args to your npm scripts.
 npm i -D @dasilvacontin/cargo
 ```
 
-## Usage
+## What / Why
+
+Scripts defined in your `package.json` can be run via `npm run <script-name>`. [Some special scripts](https://docs.npmjs.com/misc/scripts) (`test`, `start`, `stop` and `restart`) can be executed via `npm <script-name>`.
+
+```bash
+➜  cat package.json
+{
+  ...
+  "scripts": {
+    "test": "mocha test/**/*.js --require test/fixture.js --reporter dot"
+  }
+  ...
+}
+
+➜  npm test
+
+> temp@1.0.0 test /Users/dasilvacontin/temp
+> mocha test/**/*.js --require test/fixture.js --reporter dot
+
+  ․․
+
+  2 passing (9ms)
+
+```
+
+If you want to temporarily execute the same command with an additional argument, `npm` lets you pass arguments to the command the following way:
+
+```bash
+➜  npm test -- --grep top
+
+> temp@1.0.0 test /Users/dasilvacontin/temp
+> mocha test/**/*.js --require test/fixture.js --reporter dot "--grep" "top"
+
+  ․
+
+  1 passing (4ms)
+```
+
+However, this solution only lets you append arguments to the right end of the command.
+
+You could use environment variables, but it's less natural to write, you have to remember the variable name, and you have to make sure it's not already in use by one of the programs in your command:
+
+```bash
+➜  cat package.json
+{
+  ...
+  "scripts": {
+    "bump": "npm version $INC -m ':ship: Release v%s'"
+  }
+  ...
+}
+➜  INC=patch npm run bump
+
+> temp@1.0.0 test /Users/dasilvacontin/temp
+> npm version $INC -m ':ship: Release v%s'
+
+v1.0.1
+```
+
+## tl;dr
+
+[cargo](https://github.com/dasilvacontin/cargo) lets you add arguments in between, which is useful if they follow a strict order, or if you have `&&` or `|` in your command.
 
 ```bash
 ➜  cat package.json
